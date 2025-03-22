@@ -74,22 +74,30 @@ def draw_grid(stdscr, act_map, winner=None):
 
             # Represent the floats in the tensors as
             # characters so the activity is easier to visualize.
-            chars = ["#", "0", "Q", "O", "o", "c", ";", ":", ",", "."]
+
+            # straight lines only
+            # chars = ["#", "H", "=", "-", " "]
+
+            # digital rain
+            # chars = ["|", "!", ";", ":", "'", ",", ".", " "]
+
+            # density
+            chars = ["@", "0", "G", "Q", "O", "C", "o", "c", ";", ":", ",", ".", " "]
 
             # Generate thresholds exponentially spaced between 0 and 1 (excluding 1)
             # Small values spaced out, large values bunched near 1
             num_levels = len(chars)
-            thresholds = np.geomspace(0.35, 1.0, num=num_levels)[::-1]
+            thresholds = np.linspace(1.0 / num_levels, 1.0 - (1.0 / num_levels), num=num_levels)[::-1]
             char_thresholds = dict(zip(chars, thresholds))
 
-            char = "."
+            char = " "
             for k, v in char_thresholds.items():
                 if val > v:
                     char = k
                     break
 
             if winner and (x, y) == winner:
-                char = "@"
+                char = "*"
             row += f"{char:<2}"
         stdscr.addstr(y, 0, row)
     stdscr.refresh()
