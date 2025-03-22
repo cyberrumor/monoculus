@@ -8,12 +8,12 @@ return to homeostasis as a form of response-to-prompt trigger, and whatever else
 I find interesting.
 
 Eventually I'd like to be able to write an agent capable of:
-    - Continuing to process in the absence of input, E.g. generating its own
-      stimuli via feedback from hidden state or memory, and/or modifying its
-      internal representations continuously through noise.
-    - Hot-swapping bridged networks, potentially with an also-hot-swappable
-      variety of bridged network management modules (self-organizing or
-      deterministic, idk).
+- Continuing to process in the absence of input, E.g. generating its own
+  stimuli via feedback from hidden state or memory, and/or modifying its
+  internal representations continuously through noise.
+- Hot-swapping bridged networks, potentially with an also-hot-swappable
+  variety of bridged network management modules (self-organizing or
+  deterministic, idk).
 
 I'd like to set everything up from scratch (E.g., don't use pytorch) and
 preferably do so in Rust. I want everything to be modular so it's easy to swap
